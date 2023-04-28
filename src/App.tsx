@@ -1,24 +1,86 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { useDispatch, useSelector } from 'react-redux';
+import { Routes, Route, useNavigate } from 'react-router-dom';
+import { Home, Game, FinalScreen } from './components';
+
+import {
+  setCurrentQuestion,
+  setScore,
+  setSelectedAnswer,
+  questions,
+  selectScore,
+  selectCurrentQuestion,
+  selectSelectedAnswer,
+} from './redux/slices/gameSlice';
+
+type Answer = {
+  text: string;
+  correct: boolean;
+};
+
+export type QuestionData = {
+  id: number;
+  text: string;
+  points: number;
+  answers: Answer[];
+  correctAnswerIndex: number;
+};
 
 function App() {
+  const dispatch = useDispatch();
+  const score = useSelector(selectScore);
+  const currentQuestion = useSelector(selectCurrentQuestion);
+  const selectedAnswer = useSelector(selectSelectedAnswer);
+  const navigate = useNavigate();
+
+  const handleAnswerSelect = (index: number) => {
+    dispatch(setSelectedAnswer(index));
+
+    setTimeout(() => {
+      if (questions[currentQuestion].correctAnswerIndex === index) {
+        dispatch(setCurrentQuestion(currentQuestion + 1));
+        dispatch(setScore(score + questions[currentQuestion].points));
+        dispatch(setSelectedAnswer(null));
+
+        if (currentQuestion === questions.length - 1) {
+          navigate('/final');
+        }
+      } else {
+        navigate('/final');
+      }
+    }, 3000);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="wrapper">
+      <main>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route
+            path="/game"
+            element={
+              <Game
+                questions={questions}
+                currentQuestion={currentQuestion}
+                selectedAnswer={selectedAnswer}
+                handleAnswerSelect={handleAnswerSelect}
+              />
+            }
+          />
+          <Route
+            path="/game/:id"
+            element={
+              <Game
+                questions={questions}
+                currentQuestion={parseInt(':id')}
+                selectedAnswer={selectedAnswer}
+                handleAnswerSelect={handleAnswerSelect}
+              />
+            }
+          />
+          <Route path="/final" element={<FinalScreen score={score} />} />
+        </Routes>
+      </main>
     </div>
   );
 }

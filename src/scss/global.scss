@@ -1,0 +1,149 @@
+// button ========================================================================================================================================================
+.button {
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: rem(20) rem(24);
+  border-radius: rem(12);
+  width: rem(296);
+  background-color: $lightBlueColor;
+  color: $whiteColor;
+  font-weight: 600;
+  line-height: 116%;
+  transition: all 0.3s;
+  @media (max-width: $mobile) {
+    width: 100%;
+  }
+  @media (any-hover: hover) {
+    &:hover {
+      background-color: #1e6a8e;
+      transform: translate(0px, rem(-2));
+    }
+    &:active {
+      background-color: #003b63;
+      transform: translate(0px, rem(0));
+    }
+  }
+}
+
+// answer-button ========================================================================================================================================================
+.answer-button {
+  position: relative;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: rem(24) rem(50);
+  color: #3891B1;
+  @media (min-width: $tablet) {
+    @include adaptiveValue('width', 389, 260, 0, 1440, 992);
+  }
+  @media (max-width: $tablet) {
+    @include adaptiveValue('width', 389, 290, 0, 992, 768);
+  }
+  span {
+    text-align: left;
+    margin-right: rem(8);
+    font-weight: 600;
+    text-transform: uppercase;
+    color: #004974;
+  }
+  h2{
+
+  }
+
+  svg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    path {
+      transition: all 0.3s;
+    }
+  }
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    
+    height: rem(1);
+    top: 50%;
+    transform: translate(0px, -50%);
+    background-color: #d0d0d8;
+    z-index: -1;
+    @media (min-width:$mobile){
+      width: rem(18);
+    }
+    @media (max-width:$mobile){
+      width: rem(500);
+    }
+  }
+  @media (min-width:$mobile){
+    &::after {
+      left: rem(-18);
+    }
+    &::before {
+      right: rem(-18);
+    }
+  }
+  @media (max-width:$mobile){
+    &::after {
+      left: rem(-500);
+    }
+    &::before {
+      right: rem(-500);
+    }
+  }
+  &.selected {
+    &::before,
+    &::after {
+      background-color: #ff8b37;
+    }
+    svg {
+      path {
+        fill: #fff3eb;
+        stroke: #ff8b37;
+      }
+    }
+  }
+  &.correct {
+    &::before,
+    &::after {
+      background-color: #47D867;
+    }
+    svg {
+      path {
+        fill: #E6FAEA;
+        stroke: #47D867;
+      }
+    }
+  }
+  &.error {
+    &::before,
+    &::after {
+      background-color: #f50000;
+    }
+    svg {
+      path {
+        fill: #f5000067;
+        stroke: #f50000;
+      }
+    }
+  }
+  @media (any-hover: hover) {
+    &:hover {
+      &::before,
+      &::after {
+        background-color: #3891b1;
+      }
+      svg {
+        path {
+          stroke: #3891b1;
+        }
+      }
+    }
+  }
+}
