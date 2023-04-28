@@ -14,7 +14,7 @@ function Question({ question, handleAnswerSelect, selectedAnswer }: QuestionProp
     <div className="game__body body-game">
       <h1 className="body-game__title">{question?.text}</h1>
       <div className="body-game__actions">
-        {question.answers.map((answer, index) => (
+        {question?.answers.map((answer, index) => (
           <AnswerButton
             key={index}
             word={letters[index]}
