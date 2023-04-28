@@ -6,14 +6,17 @@
   justify-content: center;
   padding: rem(20) rem(24);
   border-radius: rem(12);
-  width: rem(296);
+  
   background-color: $lightBlueColor;
   color: $whiteColor;
   font-weight: 600;
   line-height: 116%;
   transition: all 0.3s;
+  @media (min-width:$mobile){
+    width: rem(296);
+  }
   @media (max-width: $mobile) {
-    width: 100%;
+    min-width: 100%;
   }
   @media (any-hover: hover) {
     &:hover {

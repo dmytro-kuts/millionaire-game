@@ -20,7 +20,7 @@ function FinalScreen({ score }: FinalScreenProps) {
               earned
             </span>
           </h1>
-          <Link to="/" className="game-start__button button">
+          <Link to="/" className="game-end__button button">
             Try again
           </Link>
         </div>

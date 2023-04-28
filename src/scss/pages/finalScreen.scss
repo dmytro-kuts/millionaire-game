@@ -12,6 +12,7 @@
     @media (max-width: $pc) {
       flex-direction: column-reverse;
     }
+
   }
   // .game-end__image
   &__image {
@@ -26,6 +27,9 @@
     justify-content: space-between;
     @media (max-width: $pc) {
       align-items: center;
+    }
+    @media (max-width:$mobile){
+      width: 100%; 
     }
     h1 {
       display: flex;
@@ -44,4 +48,6 @@
       }
     }
   }
+
+
 }
