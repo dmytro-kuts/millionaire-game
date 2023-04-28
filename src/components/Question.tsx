@@ -12,7 +12,7 @@ function Question({ question, handleAnswerSelect, selectedAnswer }: QuestionProp
   const letters = ['a', 'b', 'c', 'd'];
   return (
     <div className="game__body body-game">
-      <h1 className="body-game__title">{question.text}</h1>
+      <h1 className="body-game__title">{question?.text}</h1>
       <div className="body-game__actions">
         {question.answers.map((answer, index) => (
           <AnswerButton
