@@ -39,7 +39,7 @@ function App() {
     setTimeout(() => {
       if (questions[currentQuestion].correctAnswerIndex === index) {
         dispatch(setCurrentQuestion(currentQuestion + 1));
-        dispatch(setScore(score + questions[currentQuestion].points));
+        dispatch(setScore(questions[currentQuestion].points));
         dispatch(setSelectedAnswer(null));
 
         if (currentQuestion === questions.length - 1) {
