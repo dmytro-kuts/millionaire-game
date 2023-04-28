@@ -145,19 +145,19 @@
     "points": 64000,
     "answers": [
       {
-        "text": "Arctic Ocean"
+        "text": "Uruguay"
       },
       {
-        "text": "Indian Ocean"
+        "text": "Suriname"
       },
       {
-        "text": "Atlantic Ocean"
+        "text": "Guyana"
       },
       {
-        "text": "Southern Ocean"
+        "text": "Ecuador"
       }
     ],
-    "correctAnswerIndex": 3
+    "correctAnswerIndex": 1
   },
   {
     "id": 9,
@@ -201,23 +201,23 @@
   },
   {
     "id": 11,
-    "text": "What is the longest river in the world?",
+    "text": "What is the highest waterfall in the world?",
     "points": 512000,
     "answers": [
       {
-        "text": "Nile River"
+        "text": "Niagara Falls"
       },
       {
-        "text": "Amazon River"
+        "text": "Angel Falls"
       },
       {
-        "text": "Yangtze River"
+        "text": "Iguazu Falls"
       },
       {
-        "text": "Mississippi River"
+        "text": "Victoria Falls"
       }
     ],
-    "correctAnswerIndex": 0
+    "correctAnswerIndex": 1
   },
   {
     "id": 12,
