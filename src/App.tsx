@@ -28,10 +28,11 @@ export type QuestionData = {
 
 function App() {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+
   const score = useSelector(selectScore);
   const currentQuestion = useSelector(selectCurrentQuestion);
   const selectedAnswer = useSelector(selectSelectedAnswer);
-  const navigate = useNavigate();
 
   const handleAnswerSelect = (index: number) => {
     dispatch(setSelectedAnswer(index));

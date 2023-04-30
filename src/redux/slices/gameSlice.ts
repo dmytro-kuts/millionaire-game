@@ -1,4 +1,4 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { QuestionData } from '../../data/questions';
 import questionsData from '../../data/questions.json';
 
@@ -18,13 +18,13 @@ export const gameSlice = createSlice({
   name: 'game',
   initialState,
   reducers: {
-    setScore: (state, action) => {
+    setScore: (state, action: PayloadAction<number>) => {
       state.score = action.payload;
     },
-    setCurrentQuestion: (state, action) => {
+    setCurrentQuestion: (state, action: PayloadAction<number>) => {
       state.currentQuestion = action.payload;
     },
-    setSelectedAnswer: (state, action) => {
+    setSelectedAnswer: (state, action: PayloadAction<number | null>) => {
       state.selectedAnswer = action.payload;
     },
   },
